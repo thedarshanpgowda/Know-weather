@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+img {
+    height: 100px;
+}
+
+body {
+    height: 90vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.container {
+    margin: 5% auto;
+    width: 90%;
+    /* border: 0.1px red solid; */
+    height: 95%;
+    border-radius: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+.MainContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.maincontentforImage {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 50px;
+    color: aliceblue;
+}
+
+.container::before {
+    content: "";
+    background-image: url('bg.jpg');
+    display: block;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 1;
+    inset: 0;
+}
+
+.header {
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#day {
+    margin: 5px 0px;
+}
+
+#message {
+    font-size: 22px;
+    margin: 15px 0px;
+}
+
+#Actualtemperature {
+    font-size: 90px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+}
+
+#place {
+    font-family: 'Nunito', sans-serif;
+}
+
+.maincontent {
+    width: 60%;
+    height: 100%;
+    background-color: #fff6;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.accessories {
+    padding: 10px;
+    width: 70%;
+    margin: 10px;
+    border: 1px red solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    justify-content: center;
+    height: 200px;
+}
+
+.extra {
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    width: 80%;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+
+
+.footer {
+    display: none;
+}
+
+.searchImg img {
+    height: 20px;
+}
+
+input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin-right: 0px;
+    width: 0px;
+    background-color: aliceblue;
+    transition: all 0.6s ease-in-out;
+    visibility: hidden;
+    padding-left: 10px;
+}
+
+.searchbar {
+    align-items: center;
+    display: flex;
+    background-color: aliceblue;
+    padding: 10px 3px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.searchImg {
+    padding: 5px;
+    padding-right: 5px;
+}
+
+.searchbar:hover input {
+    width: 300px;
+    margin-right: 10px;
+    visibility: visible;
+
+}
+
+@media(width<500px) {
+    .MainContainer {
+        flex-direction: column;
+    }
+
+    .maincontentforImage {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 20px;
+        align-items: center;
+        height: 40%;
+    }
+
+    .header {
+        font-size: 14px;
+    }
+
+    #message {
+        font-size: 18px;
+    }
+
+    #Actualtemperature {
+        font-size: 60px;
+    }
+
+    .maincontent {
+        width: 100%;
+        flex-direction: row;
+        height: 40%;
+        padding: 10px;
+    }
+
+    .temperature {
+        color: #000a;
+    }
+
+    .maincontent img {
+        height: 40px;
+    }
+
+    .extra {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .accessories {
+        width: 170px;
+    }
+
+    .container {
+        margin: 5% auto 0% auto;
+        height: 106%;
+    }
+
+    .footer {
+        display: block;
+    }
+
+    .searchbar {
+        position: absolute;
+        top: 13px;
+    }
+    .maincontent img{
+        height: 20px;
+    }
+    input{
+        padding: 1px;
+        padding-left: 10px;
+    }
+}

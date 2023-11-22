@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecasting</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="MainContainer">
+
+            <div class="maincontentforImage">
+                <div class="header">
+                    <div id="day">
+                        Friday
+                    </div>
+                    <div id="date">
+                        Febrauary, 2023
+                    </div>
+                    <div id="message">
+                        Mostly Cloud
+                    </div>
+                </div>
+                <div class="temperature">
+                    <div id="Actualtemperature">
+                        9&deg;C
+                    </div>
+                    <div id="place">
+                        Hassan, Karnataka
+                    </div>
+                </div>
+            </div>
+            <div class="maincontent">
+                <div class="searchbar">
+                    <div class="input">
+                        <input type="text" id="cityName" placeholder="Search by city name">
+                    </div>
+                    <div class="searchImg">
+                        <img src="search.png" alt="" height="30">
+                    </div>
+                </div>
+                <div class="windSpeed accessories">
+
+                    <div class="blockImg">
+                        <img src="https://cdn-icons-png.flaticon.com/128/1506/1506761.png" alt="">
+                    </div>
+                    <div class="extra">
+                        <div class="heading">
+                            Wind Speed
+                        </div>
+                        <div id="wind">
+                            28km/h
+                        </div>
+
+                    </div>
+                </div>
+                <div class="humidity accessories">
+
+                    <div class="blockImg">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3262/3262966.png" alt="">
+                    </div>
+                    <div class="extra">
+                        <div class="heading">
+                            Humidity
+                        </div>
+                        <div id="humid">
+                            28&deg;C
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        //https://api.openweathermap.org/data/2.5/weather?q=hassan&appid=054e02b01529615a099fa7329c030a80
+        const url = "https://api.openweathermap.org/data/2.5/weather?q=";
+        const apiKey = "&appid=054e02b01529615a099fa7329c030a80&units=metric";
+        const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const months = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        const weather = async (city) => {
+            let response = await fetch(url + city + apiKey);
+            let data = await response.json();
+            console.log(data);
+            console.log(data.main);
+            let k = (data.main.temp).toFixed(1)
+            let date = new Date();
+            document.querySelector('#Actualtemperature').innerHTML = `${k}&deg;C `
+            document.querySelector('#humid').innerHTML = `${data.main.humidity}&deg;C `
+            document.querySelector('#wind').innerHTML = `${data.wind.speed}km/h `
+            document.querySelector('#place').innerHTML = `${data.name} `
+            document.querySelector('#day').innerHTML = `${day[date.getDay()]}`
+            document.querySelector('#date').innerHTML = `${months[date.getMonth()]}, ${date.getFullYear()}`
+
+        }
+        var city;
+
+        document.querySelector('.searchImg').addEventListener('click', () => {
+            city = document.getElementById('cityName').value;
+            weather(city);
+        })
+        const input = document.getElementById('cityName');
+        input.addEventListener('keypress', (e) => {
+            console.log(e.key)
+            if (e.code === 'Enter') {
+                e.preventDefault();
+                city = document.getElementById('cityName').value;
+                weather(city);
+            }
+        })
+        weather('hassan');
+
+    </script>
+</body>
+
+</html>
