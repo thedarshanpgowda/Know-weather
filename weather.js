@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "December",
   ];
 
+
   const snowfall = `<img src="snowfall.png" alt="">`;
   const storm = `<img src="storm.png" alt="">`;
   const sun = `<img src="sun.png" alt="">`;
@@ -62,6 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
       months[date.getMonth()]
     }, ${date.getFullYear()}`;
     const pics = document.querySelector(".blockforImaage");
+    if (data.wind.speed >= 50) {
+      pics.innerHTML = `${windy}`;
+    }
     if (k > 20) {
       pics.innerHTML = `${Partlycloudy}`;
     }
@@ -80,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (date.getHours() < 5 && date.getHours() > 21) {
       pics.innerHTML = `${night}`;
     }
-    if (k <= 0 && data.main.humidity >= 80 && data.wind.speed < 5){
+    if (k <= 0 && data.main.humidity >= 80 && data.wind.speed < 5) {
       pics.innerHTML = `${snowfall}`;
     }
   };
@@ -97,7 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // e.preventDefault();
       city = document.getElementById("cityName").value;
       weather(city);
-    }d
+    }
+    d;
   });
   input.addEventListener("keyup", (e) => {
     if (e.key === "Enter" || e.code === "Enter") {
