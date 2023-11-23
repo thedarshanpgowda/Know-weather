@@ -31,6 +31,7 @@ body {
     display: flex;
     height: 100%;
     width: 100%;
+    justify-content: space-between;
 }
 
 .maincontentforImage {
@@ -97,7 +98,7 @@ body {
 }
 
 .maincontent {
-    width: 60%;
+    width: 45%;
     height: 100%;
     background-color: #fff6;
     padding: 30px;
@@ -110,7 +111,7 @@ body {
 
 .accessories {
     padding: 10px;
-    width: 45%;
+    width: 55%;
     margin: 10px;
     border: 1px red solid;
     display: flex;
@@ -245,7 +246,7 @@ input {
     }
 
     .accessories {
-        width: 170px;
+        width: 95%;
     }
 
     .container {
