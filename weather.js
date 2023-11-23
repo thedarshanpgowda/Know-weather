@@ -94,14 +94,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   input.addEventListener("keypress", (e) => {
     if (e.code === "Enter") {
-      e.preventDefault();
+      // e.preventDefault();
       city = document.getElementById("cityName").value;
       weather(city);
     }d
   });
   input.addEventListener("keyup", (e) => {
     if (e.key === "Enter" || e.code === "Enter") {
-      e.preventDefault();
+      // e.preventDefault();
       city = document.getElementById("cityName").value;
       weather(city);
     }
