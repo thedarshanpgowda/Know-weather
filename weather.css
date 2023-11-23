@@ -72,9 +72,18 @@ body {
     margin: 5px 0px;
 }
 
+
+
 #message {
     font-size: 22px;
     margin: 15px 0px;
+    text-transform: capitalize;
+}
+
+#Cloudmessage {
+    font-size: 16px;
+    margin: 15px 0px;
+    text-transform: capitalize;
 }
 
 #Actualtemperature {
@@ -101,11 +110,11 @@ body {
 
 .accessories {
     padding: 10px;
-    width: 70%;
+    width: 45%;
     margin: 10px;
     border: 1px red solid;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: center;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
@@ -113,13 +122,13 @@ body {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.25);
     justify-content: center;
-    height: 200px;
+    height: 120px;
 }
 
 .extra {
     display: flex;
     justify-content: space-between;
-    /* flex-direction: column; */
+    flex-direction: column;
     width: 80%;
 }
 
@@ -141,7 +150,7 @@ body {
 input {
     border: none;
     outline: none;
-    padding: 5px;
+    padding: 7px;
     margin-right: 0px;
     width: 0px;
     background-color: aliceblue;
@@ -165,10 +174,24 @@ input {
 }
 
 .searchbar:hover input {
-    width: 300px;
+    width: 250px;
     margin-right: 10px;
     visibility: visible;
 
+}
+
+.blockImg img {
+    height: 70px;
+}
+
+.heading {
+    font-weight: 600;
+    margin: 10px 0px;
+}
+
+.cloudImage {
+    flex-direction: column;
+    height: 200px;
 }
 
 @media(width<500px) {
@@ -186,23 +209,27 @@ input {
     }
 
     .header {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     #message {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     #Actualtemperature {
-        font-size: 60px;
+        font-size: 40px;
     }
 
     .maincontent {
         width: 100%;
-        flex-direction: row;
-        height: 40%;
+        /* flex-direction: row; */
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        height: 60%;
         padding: 10px;
     }
+
+
 
     .temperature {
         color: #000a;
@@ -234,11 +261,28 @@ input {
         position: absolute;
         top: 13px;
     }
-    .maincontent img{
+   
+
+    .maincontent img {
         height: 20px;
     }
-    input{
+
+    input {
         padding: 1px;
         padding-left: 10px;
+    }
+
+    .cloudImage {
+        grid-column: span 2;
+        width: 95%;
+    }
+
+
+    .accessories img {
+        height: 50px;
+    }
+
+    .cloudImage img {
+        height: 70px;
     }
 }
